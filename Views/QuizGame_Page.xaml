@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QuizApp.View.QuizGame_Page" BackgroundImageSource="Png.png">
+    <StackLayout>
+        <Image HeightRequest="100" WidthRequest="100"
+                x:Name="ImageO"></Image>
+        <Label x:Name="DataLabel" Text="wow">
+            
+        </Label>
+    </StackLayout>
+</ContentPage>
