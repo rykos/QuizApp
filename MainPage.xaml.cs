@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using FileControllers.Controllers;
+using Questions.Models;
+using Questions.Controllers;
 
 namespace QuizApp
 {
@@ -23,14 +25,17 @@ namespace QuizApp
 
         private void PlayButton_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new QuizGame_Page();
+            //\content\questions_pack_1\questions_local_en.json
+            QuizQuestion[] questions = FileController.FileToJsonObject<QuizQuestion>("content/questions_pack_1/questions_local_en.json");
+            QuestionController questionController = new QuestionController(questions);
+            App.Current.MainPage = new Views.QuizPageJustText(questionController);
         }
 
         private void LeaderboardButton_Clicked(object sender, EventArgs e)
         {
             //var x = FileController.FileToString("lang/local_en.json");
             //LeaderboardButton.Text = x;
-            FileController.FileToJson();
+            //FileController.FileToJson();
             return;
         }
     }

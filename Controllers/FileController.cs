@@ -26,9 +26,9 @@ namespace FileControllers.Controllers
             return assets.Open(path);
         }
 
-        public static void FileToJson()
+        public static T[] FileToJsonObject<T>(string path)
         {
-            JsonConvert.DeserializeObject("");
+            return JsonConvert.DeserializeObject<T[]>(FileToString(path));
         }
     }
 }

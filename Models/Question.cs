@@ -4,7 +4,7 @@ using Answers.Models;
 
 namespace Questions.Models
 {
-    class QuizQuestion
+    public class QuizQuestion
     {
         public int ID { get; set; }
         public string Question { get; set; }//Always
@@ -13,7 +13,7 @@ namespace Questions.Models
         public QuestionType QuestionType { get; set; }//Always
     }
 
-    enum QuestionType
+    public enum QuestionType
     {
         JustText,
         JustImages,

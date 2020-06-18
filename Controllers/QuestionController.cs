@@ -6,8 +6,28 @@ using System.Linq;
 
 namespace Questions.Controllers
 {
-    class QuestionController
+    public class QuestionController
     {
+        private QuizQuestion[] _quizQuestions;
+        public QuestionController(QuizQuestion[] quizQuestions)
+        {
+            this._quizQuestions = quizQuestions;
+        }
+
+        public QuizQuestion TakeFirstQuestion()
+        {
+            return _quizQuestions[0];
+        }
+
+        public string[] TakeAnswers(QuizQuestion question)
+        {
+            Random rnd = new Random();
+            string[] res = new string[4];
+            SelectIncorrectAnswers(question, 3).CopyTo(res, 0);
+            res[3] = SelectRandomCorrectAnswer(question);
+            return res.OrderBy(x => rnd.Next()).ToArray();
+        }
+
         public static QuizQuestion[] SelectUniqueQuestions(QuizQuestion[] questionsPool, int amount)
         {
             Random rnd = new Random();
@@ -21,10 +41,10 @@ namespace Questions.Controllers
             return question.CorrectAnswer[new Random().Next(0, question.CorrectAnswer.Length)];
         }
 
-        public static string[] SelectIncorrectAnswers(QuizQuestion question)
+        public static string[] SelectIncorrectAnswers(QuizQuestion question, int amount = 3)
         {
             Random rnd = new Random();
-            return question.IncorrectAnswers.OrderBy(x => rnd.Next()).ToArray();
+            return question.IncorrectAnswers.OrderBy(x => rnd.Next()).Take(amount).ToArray();
         }
     }
 }

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FileControllers.Controllers;
+using QuizApp.Views;
+//using Questions.Models;
 
 namespace QuizApp.View
 {
@@ -19,7 +21,13 @@ namespace QuizApp.View
         public QuizGame_Page()
         {
             InitializeComponent();
-            ImageO.Source = ImageSource.FromFile("Placeholder.png");
+            //ImageO.Source = ImageSource.FromFile("Placeholder.png");
+
+        }
+
+        private void debugButton_Clicked(object sender, EventArgs e)
+        {
+            ((Button)sender).Text += "+";
         }
     }
 }

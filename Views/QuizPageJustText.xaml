@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QuizApp.Views.QuizPageJustText">
+    <ContentPage.Content>
+        <Grid Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label FontSize="Large" x:Name="QuestionText" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Gray">Question placeholder</Label>
+            <Button Clicked="AnswerButtonClicked" x:Name="Answer_A" Grid.Row="1"></Button>
+            <Button Clicked="AnswerButtonClicked" x:Name="Answer_B" Grid.Row="1" Grid.Column="1"></Button>
+            <Button Clicked="AnswerButtonClicked" x:Name="Answer_C" Grid.Row="2"></Button>
+            <Button Clicked="AnswerButtonClicked" x:Name="Answer_D" Grid.Row="2" Grid.Column="1"></Button>
+            <ProgressBar x:Name="ProgressBar" BackgroundColor="Gray" ProgressColor="Green" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.ColumnSpan="2" Grid.Row="3" Progress="0.5"></ProgressBar>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
